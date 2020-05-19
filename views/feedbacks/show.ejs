@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+		<h2><p class="lead>">
+<!-- styling the small table that appears besides the url image in the show page			 -->
+<!-- seeting up the title			 -->
+			<strong>Li-Fi Share Blog</strong>
+			
+			</p></h2>
+		 <div class="list-group">
+			 <h3>
+<!-- list of li's that appear beside the image content	 -->
+				  <li class ="list-group-item active">You can review any comment</li>	
+				 <hr>
+			  <li class ="list-group-item active">To add a comment please login</li>
+				 <hr>
+			  <li class ="list-group-item active">You can only edit or delete your own comment</li> 
+				 <hr>
+			 </h3>
+			
+		 </div>
+	
+	  </div>
+<!-- setting up the container to 9 columns size	 -->
+		<div class="col-md-9">
+			<div class="thumbnail">
+             <!-- using embed javascript for the feedback image, getting it from the form -->
+			    <img class="img-responsive" src="<%= feedback.image %>">
+			   <div class="caption-full">
+			<!-- using embed javascript for the feedback feeling, getting it from the form -->
+					<h4 class="pull-right">Feeling: <%= feedback.feeling %></h4>
+				   <!-- using embed javascript for the feedback name, getting it from the form -->
+					<h4><a><%=feedback.name%></a></h4>
+				   <!-- using embed javascript for the feedback description, getting it from the form -->
+				   	<p><%=	feedback.description %></p>
+				   <p>
+<!-- using embed javascript for the feedback author, saying who submited it, so now the user don't have to input the name inside the form, it is done automatically now!-->
+					<em>Submitted by <%= feedback.author.username %></em>
+				   </p>
+					<!-- This is going to check if the user owns the feedback to display or not the delete and edit buttons -->
+				   <% if(currentUser && feedback.author.id.equals(currentUser._id)){ %>
+<!-- setting up the Edit  button	-->
+					   <a class="btn btn-xs btn-warning" href="/feedbacks/<%= feedback._id %>/edit">Edit</a>
+					   <!-- method that triggers the delete button -->
+					   <form id="delete-form" action="/feedbacks/<%= feedback._id %>?_method=DELETE" method="POST">
+					<!-- setting up the Delete button	-->
+					   <button class="btn btn-xs btn-danger">Delete</button>
+					   </form>
+				   <% } %>
+			   </div>	
+		    </div>
+			<div class="well"> 
+			    <div class="text-right"> 
+	<!-- setting up the button to add a new comment for the actual comment	-->
+				<a class="btn btn-success" href="/feedbacks/<%= feedback._id %>/comments/new">Add New Comment</a>	
+			    </div>
+				<hr>
+				<% feedback.comments.forEach(function(comment){ %>
+				<div class="row">
+					<div class="col-md-12">
+<!-- getting the comment from the user using embed javascript 	 -->
+						<strong><%= comment.author.username %></strong>
+						<span class="pull-right"></span>
+						<p>
+							<%= comment.text %> 
+						</p>
+					</div>
+				</div>				
+				<% })  %>
+			</div>
+	</div>
+	
+	
+</div>
+
+<% include ../partials/footer %>

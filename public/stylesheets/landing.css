@@ -1,0 +1,95 @@
+/* defining the background color for the full body of the page */
+body {
+  background-color: #d1d4e3;
+}
+/*  checking the position for the welcome text and see the feedbacks button */
+#landing-header {
+  z-index: 1; /*setting up elements in the landing-header div that will be just in front of the background images */
+  position: relative;/* the default position is going to be static ignoring the z-index */
+  text-align: center;/* centering the text and button */
+  padding-top: 40vh;/*this is to vertically center the div  */
+}
+/* adding color, font-size and background to the h1 text */
+#landing-header h1 {
+  color: #f9ffeb ;
+  font-size:65px;
+  background: iotsandiego;
+}
+/* styling the unordered list*/
+.slideshow { 
+  position: fixed;/* positioning the ul to the window in the top left corner */
+  /*Setting width and height to 100%*/
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0; /*setting up background images to be behind the content  */
+  list-style: none; /*not being able to see the bullet points/list items from the list's styling */
+  /*margin and padding removed*/
+  margin: 0;
+  padding: 0;
+}
+    /* Landing page pictures animation*/
+.slideshow li { /* selecting each list item */
+  /*Setting width and height to 100%*/
+  width: 100%;
+  height: 100%;
+  position: absolute; 
+  /*top and left are cero again */
+  top: 0;
+  left: 0;
+  background-size: cover; /* images taking the entire space in the background */
+  background-position: 50% 50%; /*centering the images perfectly in the page */
+  background-repeat: no-repeat;/*images no repeating vertically or horizantally*/
+  opacity: 0;/*images start fading out */
+  z-index: 0;/*images are placed behind the text*/
+  /*Adding animation to an element in a time lapse of 50 seconds, keeping a linear timing where the whole animation runs at the same time whitin an infinite loop*/
+  animation: imageAnimation 50s linear infinite; /*fading images in and out, by linear it means using the same speed animation, and by infinite is using an endless loop*/
+}
+/*Setting up the background-image where the last four pictures works on an animation-delay, starting one after the other within 10 seconds */
+.slideshow li:nth-child(1) { 
+  background-image: url( https://wallpaperaccess.com/full/938061.jpg ) 	  
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(https://wallpapertag.com/wallpaper/full/b/5/0/520784-gorgerous-swiss-alps-wallpaper-2560x1600-for-android-tablet.jpg);
+	/*starting after 10 seconds*/
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(https://www.greenpearls.com/wp-content/uploads/2018/06/seebensee-Austria-sustainable-travel-1920x1080.jpg );
+/*starting after 20 seconds*/
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(https://img5.goodfon.com/original/1920x1080/5/b3/m-nnnnn-b-bbbb-vvvvvv-cccc-xxxxxxx.jpg);
+ /*starting after 30 seconds*/
+	animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(https://free4kwallpapers.com/uploads/originals/2019/11/18/national-park-mountains-wallpaper.jpg);
+/*starting after 40 seconds*/
+  animation-delay: 40s; 
+}
+/*Implementing the keyframes for our animation*/
+@keyframes imageAnimation { 
+	/*From "0" to "10" the items begin transforming the opacity from 0 to 1, (invisible to visible) */
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;/*ease-in at 0% and ease-out and 10%*/
+  }
+  10% {
+    opacity: 1;/*stays at 1 until it reaches 20% and then it fades back out*/
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+	/*reaching 0 at 30% and staying at 0 for the rest of the animation*/
+  30% {
+    opacity: 0
+  }
+}
+
+.no-cssanimations .slideshow li {  /*adding animation support for older browsers */
+	opacity: 1;/*browser that don't support css animation will just have one slide visible */
+}

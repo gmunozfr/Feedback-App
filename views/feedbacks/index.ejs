@@ -1,0 +1,102 @@
+<% include ../partials/header %> <!-- ../represents one folder back	 -->
+
+<!-- This is the main feedbacks page -->
+  <div class="container">
+	<header class="jumbotron">
+		  <div class="container">
+				<!-- taking the peace icon from font awesome	 -->
+			 <h1 class="main"><i class="fa fa-hand-peace-o"></i> Li-Fi Share Technology</h1><!--creating the title inside the jumbotron 	 -->
+			 <P class="intell">Intelligence Model </P><!--creating a subtitle inside the jumbotron 	 -->
+			  <!-- styling the button while using bootstrap and redirecting to the new	-->
+			 <P><a class="btn btn-info btn-large" href="/feedbacks/new">Please add your comment</a>
+			 </P>
+		  </div>
+	</header>
+	 <div class="row">
+		
+		 <div class="col-lg-12">
+			 <!--creating the title to hold the content of the feedbacks page 	 -->
+		<h2 class="title">"Li-Fi Share Special Features"</h2> 
+		<hr>	
+		<!-- setting up the content for h2	-->
+		<h2 class="cont">Li-Fi Share is a prototype technology which allow us to transfer and receive data through our mobile phones using the flashlight at the back and the ambient light sensor at the front.			
+			 </h2>
+		<!-- setting up the content for h2	 -->
+			<h2 class="cont"> The goal regarding this Application is to transfer data by utilising light waves. The technology that will serve as the main back bone for this project is called Li-Fi, which stands for Light-Fidelity.</h2>
+			
+<br>
+	<!-- setting up more content with unordered li's for h2	 -->
+<h2>We <strong>Alpha-Team</strong> developed a mobile application called “Li-Fi Share” that have the following capabilities:</h2> 
+  <div class="list">  			
+	<ul>				
+		<li>Uses the flashlight of a smart phone as a transmitter.</li>
+		<li>Uses the built in ambient light sensor in smart phone as a receiver.</li>
+		<li>The user is able to send all the files Locally from one mobile to another, that they are sending today mostly by using Bluetooth or other applications like “Share-It” that uses Wi-Fi and mobile hotspot as the medium for data transfer.           </li>
+    </ul>
+	  <br>
+	  <div> 
+		  <!-- setting up more for the feedbacks page content  -->
+	<p>
+		This Web Application allows you to leave any comment and feedbacks in regards to Li-Fi Share Application. We as a team can guide you in order to solve your issue or just to simply have a good chat. 
+		  </p> 
+     </div>	 
+	  
+	  </div> 
+<!-- defining the size of our container to 12 column size -->
+		 <div class="col-lg-12">
+			 <hr>
+<!-- title for the container before displaying the comment's pictures  -->
+		<h3 class="window">Our Most Popular Comments!</h3> 
+	  </div> 
+	 </div>
+		<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		  <% feedbacks.forEach(function(feedback){ %>
+			<!-- with for the comment pictures in the feedbacks page -->
+			<div class="col-md-3 col-sm-6">
+		      <div class="thumbnail">
+			<!-- displaying the feedback image	 -->
+		        <img src="<%=feedback.image %>">
+		      <div class="caption">
+		    <!-- displaying the feedback name	 -->
+			   <h4><%= feedback.name %></h4>
+			</div>
+			 <!-- styling the "View Comment" button while using bootstrap	-->
+		  <p> <a href="/feedbacks/<%= feedback._id %>" class="btn btn-primary">View Comment</a></p>
+		</div>	
+<!-- We have to put the "ejs tags" inside the src otherwise is gonna be plain text	 -->
+		</div>
+	      <% }); %>			
+		</div>
+</div>
+	<hr>
+<!-- setting the progress navbar! -->
+ <div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+<!--taking the entire width!     -->
+	  <span class="sr-only">100% Complete</span>
+  </div>
+</div>
+
+	  <!--link to go to the top of the page!   -->
+      <h3>
+		  <a class="nav-link" href="#">Go up!</a>
+	  </h3>
+	  <br>
+<!-- <footer class="footer"> -->
+      <div class="uicontainer">
+        <span class="text-muted">&copy;Copyright Li-Fi Share App SA. All rights reserved.  Terms of Use | Privacy Notice | Cookie Notice></span>
+      </div>
+
+    <!-- </footer> -->
+
+<hr>
+<!-- 	//team references to provide help to the user   -->
+<div class="panel panel-default">
+  <div class="panel-heading"><b>PLEASE CONTACT US FOR ANY SUGGESTION - 874559368 </b> </div>
+
+
+</div> 
+	  
+	  
+	  
+<% include ../partials/footer %>

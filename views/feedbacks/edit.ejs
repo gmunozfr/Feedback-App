@@ -1,0 +1,43 @@
+<!-- /*  this is the form where we can edit a comment*/ -->
+<% include ../partials/header %>
+
+<div class="container">
+	<div class="row">	
+<!-- setting up the title for the edit form using embed javascript		 -->
+		<h1 style="text-align: center;">Edit the comment for <%= feedback.name %></h1>
+	<div style="width: 30%; margin: 25px auto;">	
+		<!-- editing the comment regarding the feedback id	-->
+      <form action="/feedbacks/<%= feedback._id %>?_method=PUT" method="POST">
+		 <div clas="form-group">
+			 <!-- adding [] because we're dealing with objects -->
+<!-- where the user can edit the name inside the form	-->
+		  <input class="form-control" type="text" name="feedback[name]" value="<%= feedback.name %>">
+		 </div>
+		  
+		  <div clas="form-group">
+			  <!-- where the user can edit the feeling inside the form	-->
+		  <input class="form-control" type="text" name="feedback[feeling]" value="<%= feedback.feeling %>">
+		 </div>
+		  
+		 <div clas="form-group">
+			 <!-- where the user can edit the url image inside the form	-->
+		  <input class="form-control" type="text" name="feedback[image]" value="<%= feedback.image %>">
+		 </div>
+		  
+		  <div clas="form-group">	 
+			  <!-- where the user can edit the description inside the form	-->
+		  <input class="form-control" type="text" name="feedback[description]" value="<%= feedback.description %>">
+		 </div>
+		  <div clas="form-group">
+			  <!-- styling the submit button while using bootstrap	-->
+		    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+		 </div>
+	  </form>
+		<!-- styling the "Go back" button with green color while using bootstrap-->
+		<a href="/feedbacks" class="btn btn-success btn-sm">Go Back</a>
+	</div>	
+	</div>
+</div>
+
+<% include ../partials/footer %>
+

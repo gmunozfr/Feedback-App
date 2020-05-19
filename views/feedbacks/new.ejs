@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+
+<!-- This is the Form where user put the info to create a new comment -->
+<!-- getting the container -->
+<div class="container">
+	<div class="row">
+		<!-- setting up the Title for the "create comment" Form  -->
+		<h1 style="text-align: center;">Create a New Comment</h1>
+	<div style="width: 30%; margin: 25px auto;">	
+      <form action="/feedbacks" method="POST">
+		 <div clas="form-group">
+			 <!-- where the user can input the name inside the form	-->
+		  <input class="form-control" type="text" name="name" placeholder="name">
+		  </div>
+		  
+		  <div clas="form-group">
+			  <!-- where the user can input the feeling inside the form	-->
+		  <input class="form-control" type="text" name="feeling" placeholder="feeling"> 
+		 </div>
+		  
+		 <div clas="form-group">
+			  <!-- where the user can input the url image inside the form	-->
+		  <input class="form-control" type="text" name="image" placeholder="image url">
+		 </div>
+		  <div clas="form-group">
+			   <!-- where the user can input the description inside the form	-->
+		  <input class="form-control" type="text" name="description"            placeholder="description">
+		 </div>
+		  <div clas="form-group">
+			   <!-- styling the "submit" button with blue color while using bootstrap	-->
+		    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+		 </div>
+	  </form>	
+		<!-- styling the "Go back" button with green color while using bootstrap-->
+		<a href="/feedbacks" class="btn btn-success btn-sm">Go Back</a>
+	</div>	
+	</div>
+</div>
+
+<% include ../partials/footer %>
+

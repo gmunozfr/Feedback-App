@@ -1,0 +1,78 @@
+/* selecting all images inside thumbnails because it is a bootstrab class, the img always with space after .thumbnail */
+.navbar-inverse{
+	background: #42698f;
+}
+
+/*Overriding the navbar in order to put white color on the links  */
+.navbar-inverse .navbar-nav>li>a{
+	color:white;
+}
+/* styling the home link*/
+.navbar-inverse .navbar-brand {
+	color: white;
+}
+
+body {/*This is the background image setup for the 3 pages of the app*/
+  /* the image was taken from the website: https://unsplash.com/ */
+background-image: url(https://images.unsplash.com/photo-1574181047542-c76d090d6181?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1974&q=80);
+	padding-top: 70px;/*implementing the padding size on top*/
+}
+/*giving style to the jumbotron*/
+.jumbotron{
+	background-color: #ecf0f1;
+	color: #8fb807;
+}/*Styling the Intelligence Model title in the index.ejs file*/
+.intell{
+	color: #4a5e87;
+	font-weight: 900;
+    font-size: 3.5em;
+}
+/*Styling the li's regarding the content/info in the index.ejs file*/
+.list{
+	text-align:  auto;	/*positioning the li's*/
+	font-weight: 200;
+    font-size:   2em;
+	color: #475759;
+	padding: 20px;/*getting more space for the li's*/
+}
+/*Styling the font for the title in the index.ejs file */
+.title{
+font-weight: 600;
+font-size:3.5em;
+text-align: center;/*centering the title*/
+color: #6389db;/*purple color*/
+
+} /*Styling the content of the title in the index.ejs file */
+.cont{
+	text-align: auto;/*positioning the content*/
+	font-weight: 200;
+    font-size:   2em;
+	color: #475759;/*grey color*/
+	padding: 12px;/*setting more space between the paragraphs*/	
+	
+	}		
+/* styling the h3 text of the index.ejs file*/
+.window{
+	font-weight: 400;
+    font-size:3em;
+    text-align: left;/*positioning the title inside the container*/
+    color: #33415e;/*dark grey color*/
+	
+}
+/*setting up and styling the 2 small thin white bars to fit the content/info of the Web Application regarding the feedbacks page*/
+hr{
+	width: 400;/*width the bar*/
+	border-top: 2px solid #f8f8f8;/*white color*/
+	border-bottom: 2px solid rgba(0,0,0,0.2);/*color and size for the bottom of the bar*/	
+}
+
+/*Setting the thumbnail for the h3 in the index.ejs*/
+.thumbnail img {   
+
+	width: 100%;/*width/size for each comment picture in the feedback page*/
+}
+
+/*displaying the edit and delete button one beside each other, great work here :)*/
+#delete-form{
+	display: inline;
+}

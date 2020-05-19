@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!-- Creating the Styling and Functionality for the navbar -->
+
+<html>
+  <head>
+	  <!-- This helps making the site responsive on mobiles or tablets -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Li-Fi Share Application</title>	
+	  <!--getting the Bootstrap library  -->
+	<link rel="stylesheet" type="text/css"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<!--getting the Fontawesome library  -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!--link for the main css file 	   -->
+ 	<link rel="stylesheet" href="/stylesheets/main.css">
+	</head>
+<body> 
+<!--getting the navbbar and also it stays fixed on top 	 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+<!--adding the toggle functionality to the navbar, collapse -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+<!-- setting the icons for the navbar from fontawesome site -->
+            <a class="navbar-brand" href="/"><i class="fa fa-home" ></i> Home</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+<!-- seeting up the functionality for the comment link   -->
+            <li class="<%= typeof page !== 'undefined' && page === 'feedbacks' ? 'active' : '' %>"><a href="/feedbacks"><i class="fa fa-comments"></i> Comments</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <% if(!currentUser){ %>
+<!-- seeting up the authentication functionality for the login and sign up 			   -->
+<!--setting up the login icon from fontawesome  -->		  
+                  <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login"><i class="fa fa-sign-in" ></i> Login</a></li>
+<!--setting up the sign up icon from fontawesome  -->
+                  <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register"><i class="fa fa-user-plus" ></i> Sign Up</a></li>
+              <% } else { %>
+<!--setting up the user icon from fontawesome and using javascript to get the username as signed in  -->
+                  <li><a href="#"><i class="fa fa-user"></i> Signed In As <%= currentUser.username %></a></li>
+<!--setting up the logout icon from fontawesome  -->
+                  <li><a href="/logout"> <i class="fa fa-sign-out" ></i> Logout</a></li>
+              <% } %>
+          </ul>
+        </div>
+    </div>
+</nav>
+
+	 <div class="container">
